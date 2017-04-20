@@ -1,4 +1,4 @@
-function bubbleSort(array) {
+function bubbleSort(array, func) {
   var sortedIndex = array.length - 1;
   while(sortedIndex > 0) { // While there is an unsorted pile
 

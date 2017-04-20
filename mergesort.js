@@ -10,24 +10,48 @@ function split(wholeArray) {
 function merge(arr1, arr2) {
   var result = [];
 
-  while(arr1.length && arr2.length) {
-    if(arr1[0] < arr2[0]) {
-      result.push(arr1.shift());
+  // while(arr1.length && arr2.length) {
+  //   if(arr1[0] < arr2[0]) {
+  //     result.push(arr1.shift());
+  //   }
+  //   else {
+  //     result.push(arr2.shift());
+  //   }
+  // }
+
+  var indexOne = indexTwo = 0;
+
+  while(indexOne < arr1.length && indexTwo < arr2.length) {
+    if(arr1[indexOne] < arr2[indexTwo]) {
+      result.push(arr1[indexOne]);
+      indexOne++;
     }
     else {
-      result.push(arr2.shift());
+      result.push(arr2[indexTwo]);
+      indexTwo++;
     }
   }
 
-  var remaining;
-  if(arr1.length) {
-    remaining = arr1;
+  // var remaining;
+  // if(arr1.length) {
+  //   remaining = arr1;
+  // }
+  // else if(arr2.length) {
+  //   remaining = arr2;
+  // }
+  // if(remaining) {
+  //   result = result.concat(remaining);
+  // }
+
+  if(indexOne < arr1.length) {
+    for(var i = indexOne; i < arr1.length; i++) {
+      result.push(arr1[i]);
+    }
   }
-  else if(arr2.length) {
-    remaining = arr2;
-  }
-  if(remaining) {
-    result = result.concat(remaining);
+  else {
+    for(var i = indexTwo; i < arr2.length; i++) {
+      result.push(arr2[i]);
+    }
   }
 
   return result;

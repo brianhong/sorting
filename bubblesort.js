@@ -1,10 +1,10 @@
 function bubbleSort(array, func) {
   var sortedIndex = array.length - 1;
-  while(sortedIndex > 0) { // While there is an unsorted pile
+  while(sortedIndex > 0) {
 
     var currIndex = 0;
 
-    while(currIndex < sortedIndex) { // Sort unsorted, do not enter sorted pile
+    while(currIndex < sortedIndex) {
       var current = array[currIndex];
 
       if(current > array[currIndex + 1]) {

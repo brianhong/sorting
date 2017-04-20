@@ -10,15 +10,6 @@ function split(wholeArray) {
 function merge(arr1, arr2) {
   var result = [];
 
-  // while(arr1.length && arr2.length) {
-  //   if(arr1[0] < arr2[0]) {
-  //     result.push(arr1.shift());
-  //   }
-  //   else {
-  //     result.push(arr2.shift());
-  //   }
-  // }
-
   var indexOne = indexTwo = 0;
 
   while(indexOne < arr1.length && indexTwo < arr2.length) {
@@ -32,23 +23,12 @@ function merge(arr1, arr2) {
     }
   }
 
-  // var remaining;
-  // if(arr1.length) {
-  //   remaining = arr1;
-  // }
-  // else if(arr2.length) {
-  //   remaining = arr2;
-  // }
-  // if(remaining) {
-  //   result = result.concat(remaining);
-  // }
-
   if(indexOne < arr1.length) {
     for(var i = indexOne; i < arr1.length; i++) {
       result.push(arr1[i]);
     }
   }
-  else {
+  else if(indexTwo < arr2.length) {
     for(var i = indexTwo; i < arr2.length; i++) {
       result.push(arr2[i]);
     }
